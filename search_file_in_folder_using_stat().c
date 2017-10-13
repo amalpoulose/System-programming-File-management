@@ -43,7 +43,7 @@ int search(char *path,char *name)
 		strcpy(fullpath,path);
 		strcat(fullpath,"/");
 		strcat(fullpath,v->d_name);
-		lstat(fullpath,&p);
+		stat(fullpath,&p);
 		if(S_ISDIR(p.st_mode))
 			search(fullpath,name);
 		else if(S_ISREG(p.st_mode))
